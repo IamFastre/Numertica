@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl5e146pla2a"]
+
+[ext_resource type="Script" path="res://assets/backgrounds/background.gd" id="1_ui0n4"]
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+visible = false
+script = ExtResource("1_ui0n4")
