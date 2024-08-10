@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp0rfuihr2ia4"]
+
+[ext_resource type="Script" path="res://assets/backgrounds/blueprint/main.gd" id="1_6ni7a"]
+[ext_resource type="Script" path="res://assets/backgrounds/blueprint/central_grid.gd" id="1_ur67e"]
+[ext_resource type="Script" path="res://assets/backgrounds/blueprint/background.gd" id="2_sxvvw"]
+[ext_resource type="Script" path="res://assets/backgrounds/blueprint/corners.gd" id="3_cnaby"]
+[ext_resource type="Script" path="res://assets/backgrounds/blueprint/rulers.gd" id="5_l8h6e"]
+
+[node name="Blueprint" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ni7a")
+
+[node name="Background" type="ColorRect" parent="." node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_sxvvw")
+parent = NodePath("..")
+
+[node name="Central Grid" type="Control" parent="." node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ur67e")
+parent = NodePath("..")
+
+[node name="Corners" type="Control" parent="." node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_cnaby")
+parent = NodePath("..")
+
+[node name="Top Left" type="ColorRect" parent="Corners"]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Top Right" type="ColorRect" parent="Corners"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom Right" type="ColorRect" parent="Corners"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom Left" type="ColorRect" parent="Corners"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_right = 20.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Rulers" type="Control" parent="." node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_l8h6e")
+parent = NodePath("..")
