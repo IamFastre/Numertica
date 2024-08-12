@@ -1,0 +1,10 @@
+card:
+  id: card_id_enum
+  name: name_lowercase_string
+  type: card_type_enum
+  cost: 0
+  desc: card_description
+  parameters:
+    - name: X
+      type: parameter_input_type
+      desc: parameter_description
