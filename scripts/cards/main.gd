@@ -22,11 +22,13 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 @onready var separator = $Sprite/Canvas/Content/Separator
 @onready var name_node = $Sprite/Canvas/Content/Textual/CardName
 @onready var type_name = $Sprite/Canvas/Content/TypeName
+@onready var parameters_brackets = $Sprite/Canvas/Content/Brackets
 
 func configure():
 	name_node.text = card_name
 	type_name.text = Card.Icons.keys()[card_type].capitalize()
 	type_name.label_settings.font_color = Card.ICON_COLOR[card_type]
+	parameters_brackets.label_settings.font_color = Card.ICON_COLOR[card_type]
 	sprite.self_modulate = sprite_color
 	info_box.color = sprite_color
 	separator.default_color = sprite_color

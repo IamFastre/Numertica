@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://5ssldbmmiqtq"]
 
-[ext_resource type="FontFile" uid="uid://dfh74ts4qma8h" path="res://assets/fonts/WorkSans/WorkSans-Light.ttf" id="1_jxic6"]
+[ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="1_crwnb"]
 
 [resource]
-font = ExtResource("1_jxic6")
+font = ExtResource("1_crwnb")
 font_size = 14
 font_color = Color(0, 0, 0, 1)

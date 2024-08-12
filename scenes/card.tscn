@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=7 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://cgpy3cg7mtq3b" path="res://assets/cards/shape.svg" id="2_fj6ve"]
 [ext_resource type="LabelSettings" uid="uid://c6yet1dr421yr" path="res://resources/card_name.tres" id="3_go25d"]
-[ext_resource type="LabelSettings" uid="uid://5ssldbmmiqtq" path="res://resources/card_type.tres" id="4_2sajv"]
+[ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="5_kfhyl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wpiq"]
+font = ExtResource("5_kfhyl")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lf210"]
+font = ExtResource("5_kfhyl")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_7a6ey")
@@ -112,13 +121,27 @@ stretch_mode = 5
 
 [node name="TypeName" type="Label" parent="Sprite/Canvas/Content"]
 layout_mode = 0
-offset_left = 37.0
+offset_left = 36.0
 offset_top = 228.0
-offset_right = 90.0
+offset_right = 89.0
 offset_bottom = 251.0
 pivot_offset = Vector2(0, 12.5)
 text = "Type"
-label_settings = ExtResource("4_2sajv")
+label_settings = SubResource("LabelSettings_7wpiq")
+horizontal_alignment = 1
+vertical_alignment = 3
+clip_text = true
+text_overrun_behavior = 1
+max_lines_visible = 1
+
+[node name="Brackets" type="Label" parent="Sprite/Canvas/Content"]
+offset_left = 137.5
+offset_top = 227.0
+offset_right = 190.5
+offset_bottom = 250.0
+pivot_offset = Vector2(0, 12.5)
+text = "{       }"
+label_settings = SubResource("LabelSettings_lf210")
 horizontal_alignment = 1
 vertical_alignment = 3
 clip_text = true
