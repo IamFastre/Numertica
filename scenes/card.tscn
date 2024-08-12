@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=8 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://cgpy3cg7mtq3b" path="res://assets/cards/shape.svg" id="2_fj6ve"]
@@ -12,6 +12,11 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf210"]
 font = ExtResource("5_kfhyl")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k83nf"]
+font = ExtResource("5_kfhyl")
+font_size = 12
 font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="Node2D"]
@@ -120,11 +125,16 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TypeName" type="Label" parent="Sprite/Canvas/Content"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 228.0
-offset_right = 89.0
-offset_bottom = 251.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.737
+anchor_right = 0.278
+anchor_bottom = 0.737
+offset_left = -26.55
+offset_top = -11.525
+offset_right = 26.45
+offset_bottom = 11.475
 pivot_offset = Vector2(0, 12.5)
 text = "Type"
 label_settings = SubResource("LabelSettings_7wpiq")
@@ -135,13 +145,39 @@ text_overrun_behavior = 1
 max_lines_visible = 1
 
 [node name="Brackets" type="Label" parent="Sprite/Canvas/Content"]
-offset_left = 137.5
-offset_top = 227.0
-offset_right = 190.5
-offset_bottom = 250.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.734
+anchor_right = 0.729
+anchor_bottom = 0.734
+offset_left = -26.525
+offset_top = -11.55
+offset_right = 26.475
+offset_bottom = 11.45
 pivot_offset = Vector2(0, 12.5)
 text = "{       }"
 label_settings = SubResource("LabelSettings_lf210")
+horizontal_alignment = 1
+vertical_alignment = 3
+clip_text = true
+text_overrun_behavior = 1
+max_lines_visible = 1
+
+[node name="Parameters" type="Label" parent="Sprite/Canvas/Content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.734
+anchor_right = 0.729
+anchor_bottom = 0.734
+offset_left = -26.025
+offset_top = -9.55
+offset_right = 26.975
+offset_bottom = 12.45
+pivot_offset = Vector2(0, 12.5)
+text = "x"
+label_settings = SubResource("LabelSettings_k83nf")
 horizontal_alignment = 1
 vertical_alignment = 3
 clip_text = true
