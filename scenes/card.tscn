@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=10 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://cgpy3cg7mtq3b" path="res://assets/cards/shape.svg" id="2_fj6ve"]
 [ext_resource type="LabelSettings" uid="uid://c6yet1dr421yr" path="res://resources/card_name.tres" id="3_go25d"]
+[ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/icon/arithmetic.png" id="5_8w5gh"]
 [ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="5_kfhyl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7wpiq"]
-font = ExtResource("5_kfhyl")
-font_size = 14
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://b03klis2v5mmq" path="res://assets/cards/circle.png" id="5_ofwn5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf210"]
 font = ExtResource("5_kfhyl")
@@ -16,18 +13,25 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k83nf"]
 font = ExtResource("5_kfhyl")
-font_size = 12
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wpiq"]
+font = ExtResource("5_kfhyl")
+font_size = 15
 font_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_7a6ey")
 
 [node name="Sprite" type="TextureRect" parent="."]
+clip_contents = true
 texture = ExtResource("2_fj6ve")
 
 [node name="Canvas" type="TextureRect" parent="Sprite"]
 self_modulate = Color(0, 0, 0, 1)
 clip_children = 2
+layout_mode = 0
 offset_left = 12.5
 offset_top = 12.5
 offset_right = 237.5
@@ -105,44 +109,15 @@ vertical_alignment = 1
 uppercase = true
 max_lines_visible = 1
 
-[node name="InfoBox" type="Polygon2D" parent="Sprite/Canvas/Content"]
-position = Vector2(25, 237.5)
-antialiased = true
-polygon = PackedVector2Array(0, 0, 10, -12.5, 165, -12.5, 175, 0, 165, 12.5, 10, 12.5)
-
 [node name="Separator" type="Line2D" parent="Sprite/Canvas/Content"]
 position = Vector2(0, 237.5)
 points = PackedVector2Array(0, 0, 225, 0)
 width = 5.0
 
-[node name="Icon" type="TextureRect" parent="Sprite/Canvas/Content"]
-layout_mode = 0
-offset_left = 87.5
-offset_top = 212.5
-offset_right = 137.5
-offset_bottom = 262.5
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TypeName" type="Label" parent="Sprite/Canvas/Content"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.278
-anchor_top = 0.737
-anchor_right = 0.278
-anchor_bottom = 0.737
-offset_left = -26.55
-offset_top = -11.525
-offset_right = 26.45
-offset_bottom = 11.475
-pivot_offset = Vector2(0, 12.5)
-text = "Type"
-label_settings = SubResource("LabelSettings_7wpiq")
-horizontal_alignment = 1
-vertical_alignment = 3
-clip_text = true
-text_overrun_behavior = 1
-max_lines_visible = 1
+[node name="InfoBox" type="Polygon2D" parent="Sprite/Canvas/Content"]
+position = Vector2(25, 237.5)
+antialiased = true
+polygon = PackedVector2Array(0, 0, 10, -12.5, 55.1709, -12.5, 165, -12.5, 175, 0, 165, 12.5, 10, 12.5)
 
 [node name="Brackets" type="Label" parent="Sprite/Canvas/Content"]
 layout_mode = 1
@@ -151,12 +126,12 @@ anchor_left = 0.729
 anchor_top = 0.734
 anchor_right = 0.729
 anchor_bottom = 0.734
-offset_left = -26.525
+offset_left = -129.525
 offset_top = -11.55
-offset_right = 26.475
-offset_bottom = 11.45
+offset_right = 27.975
+offset_bottom = 13.45
 pivot_offset = Vector2(0, 12.5)
-text = "{       }"
+text = "{                           }"
 label_settings = SubResource("LabelSettings_lf210")
 horizontal_alignment = 1
 vertical_alignment = 3
@@ -167,14 +142,14 @@ max_lines_visible = 1
 [node name="Parameters" type="Label" parent="Sprite/Canvas/Content"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.729
-anchor_top = 0.734
-anchor_right = 0.729
-anchor_bottom = 0.734
-offset_left = -26.025
-offset_top = -9.55
-offset_right = 26.975
-offset_bottom = 12.45
+anchor_left = 0.5
+anchor_top = 0.733
+anchor_right = 0.5
+anchor_bottom = 0.733
+offset_left = -66.5
+offset_top = -11.225
+offset_right = 66.5
+offset_bottom = 10.775
 pivot_offset = Vector2(0, 12.5)
 text = "x"
 label_settings = SubResource("LabelSettings_k83nf")
@@ -183,3 +158,51 @@ vertical_alignment = 3
 clip_text = true
 text_overrun_behavior = 1
 max_lines_visible = 1
+
+[node name="Type" type="Control" parent="Sprite"]
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 55.0
+
+[node name="TypeBox" type="Polygon2D" parent="Sprite/Type"]
+position = Vector2(35, 28)
+antialiased = true
+polygon = PackedVector2Array(10, -15, 80, -15, 60, 15, 10, 15)
+
+[node name="IconBackground" type="TextureRect" parent="Sprite/Type"]
+layout_mode = 1
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 57.0
+offset_bottom = 55.0
+texture = ExtResource("5_ofwn5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IconBackground2" type="ColorRect" parent="Sprite/Type"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 28.0
+offset_bottom = 55.0
+
+[node name="TypeName" type="Label" parent="Sprite/Type"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 13.0
+offset_right = 90.0
+offset_bottom = 36.0
+pivot_offset = Vector2(0, 12.5)
+text = "Type"
+label_settings = SubResource("LabelSettings_7wpiq")
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Icon" type="TextureRect" parent="Sprite/Type"]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("5_8w5gh")
+expand_mode = 1
+stretch_mode = 5

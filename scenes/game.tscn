@@ -16,8 +16,9 @@
 anchor_mode = 0
 
 [node name="Card" parent="." instance=ExtResource("4_827eh")]
-position = Vector2(212, 77)
+position = Vector2(461, 157)
 card_name = "Addition"
+card_icon = 1
 foreground_texture = ExtResource("4_37bpg")
 background_texture = ExtResource("5_h8bh3")
 canvas_color = Color(0.0588235, 0.662745, 0.556863, 1)
