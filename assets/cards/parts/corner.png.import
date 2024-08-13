@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgpy3cg7mtq3b"
-path="res://.godot/imported/shape.svg-bcff4ab8be36c53c44389e3f68c04464.ctex"
+uid="uid://djoaj7bqlpvc5"
+path="res://.godot/imported/corner.png-5f800e15a6a1172c30a0153720c3e518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/shape.svg"
-dest_files=["res://.godot/imported/shape.svg-bcff4ab8be36c53c44389e3f68c04464.ctex"]
+source_file="res://assets/cards/parts/corner.png"
+dest_files=["res://.godot/imported/corner.png-5f800e15a6a1172c30a0153720c3e518.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
