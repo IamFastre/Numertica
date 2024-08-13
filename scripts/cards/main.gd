@@ -14,20 +14,19 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 
 @onready var sprite = $Sprite
 @onready var canvas = $Sprite/Canvas
-@onready var content = $Sprite/Canvas/Content
-@onready var background = $Sprite/Canvas/Content/Art/Background
-@onready var foreground = $Sprite/Canvas/Content/Art/Foreground
-@onready var name_node = $Sprite/Canvas/Content/Textual/CardName
+@onready var background = $Sprite/Canvas/Art/Background
+@onready var foreground = $Sprite/Canvas/Art/Foreground
+@onready var name_node = $Sprite/Canvas/CardName
 
-@onready var icon = $Sprite/Type/Icon
-@onready var icon_background = $Sprite/Type/IconBackground
-@onready var type_name = $Sprite/Type/TypeName
-@onready var type_box = $Sprite/Type/TypeBox
+@onready var type_icon = $Sprite/Corners/Left/Type
+@onready var cost_icon = $Sprite/Corners/Right/Cost
+@onready var type_background = $Sprite/Corners/Left
+@onready var cost_background = $Sprite/Corners/Right
 
-@onready var info_box = $Sprite/Canvas/Content/InfoBox
-@onready var separator = $Sprite/Canvas/Content/Separator
-@onready var parameters_brackets = $Sprite/Canvas/Content/Brackets
-@onready var parameters_label = $Sprite/Canvas/Content/Parameters
+@onready var band = $Sprite/Canvas/Band
+@onready var separator = $Sprite/Canvas/Separator
+@onready var parameters_brackets = $Sprite/Canvas/Band/Brackets
+@onready var parameters_label = $Sprite/Canvas/Band/Parameters
 
 func configure():
 	name_node.text = card_name
@@ -35,21 +34,18 @@ func configure():
 	sprite.self_modulate = sprite_color
 
 	parameters_label.text = ', '.join(parameters.map(func(param): return param.get('name')))
-	parameters_label.label_settings.font_color = canvas_color
-	parameters_brackets.label_settings.font_color = Card.ICON_COLOR[card_icon]
-	info_box.color = sprite_color
-	separator.default_color = sprite_color
+	parameters_label.self_modulate = canvas_color
+	parameters_brackets.self_modulate = Card.ICON_COLOR[card_icon]
+	band.self_modulate = sprite_color
+	separator.color = sprite_color
 
 	foreground.texture = foreground_texture
 	background.texture = background_texture
 
-	icon.texture = load(ICONS_PATH % Card.Icons.keys()[card_icon])
-	icon_background.self_modulate = sprite_color
-	type_name.text = Card.Icons.keys()[card_icon].capitalize()
-	type_name.label_settings.font_color = Card.ICON_COLOR[card_icon]
-	type_box.color = sprite_color
-	type_box.polygon[1] = Vector2(type_name.size.x + 45, type_box.polygon[1].y)
-	type_box.polygon[2] = Vector2(type_name.size.x + 20, type_box.polygon[2].y)
+	type_icon.texture = load(ICONS_PATH % Card.Icons.keys()[card_icon])
+	cost_icon.self_modulate = Card.COST_COLOR[cost]
+	type_background.self_modulate = sprite_color
+	cost_background.self_modulate = sprite_color
 
 func _process(_delta):
 	configure()

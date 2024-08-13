@@ -13,3 +13,9 @@ const ICON_COLOR = [
    Color("df003e"), # Icons.heal
    Color("ffa80d"), # Icons.arithmetic
 ]
+
+const COST_COLOR = [
+   Color("76e86a"),
+   Color("ffa80d"),
+   Color("df003e"),
+]
