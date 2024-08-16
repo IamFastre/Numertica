@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_6ni7a")
 
 [node name="Background" type="ColorRect" parent="." node_paths=PackedStringArray("parent")]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_sxvvw")
 parent = NodePath("..")
 
@@ -38,6 +40,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ur67e")
 parent = NodePath("..")
 
@@ -48,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("3_cnaby")
 parent = NodePath("..")
 
@@ -55,6 +59,7 @@ parent = NodePath("..")
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Top Right" type="ColorRect" parent="Corners"]
@@ -65,6 +70,7 @@ anchor_right = 1.0
 offset_left = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Bottom Right" type="ColorRect" parent="Corners"]
@@ -78,6 +84,7 @@ offset_left = -20.0
 offset_top = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Bottom Left" type="ColorRect" parent="Corners"]
@@ -88,6 +95,7 @@ anchor_bottom = 1.0
 offset_top = -20.0
 offset_right = 20.0
 grow_vertical = 0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Rulers" type="Control" parent="." node_paths=PackedStringArray("parent")]
@@ -97,5 +105,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("5_l8h6e")
 parent = NodePath("..")
