@@ -1,4 +1,5 @@
-class_name CardNode extends Node2D
+@tool
+class_name CardNode extends Area2D
 
 const ICONS_PATH = "res://assets/cards/icon/%s.png"
 
