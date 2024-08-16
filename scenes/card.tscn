@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=12 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://c3edcmxg5xksl" path="res://assets/cards/parts/shape.png" id="2_mpd6y"]
@@ -16,7 +16,11 @@ font = ExtResource("5_kfhyl")
 font = ExtResource("5_kfhyl")
 font_size = 14
 
-[node name="Card" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deg3g"]
+size = Vector2(250, 350)
+
+[node name="Card" type="Area2D"]
+scale = Vector2(0.666, 0.666)
 script = ExtResource("1_7a6ey")
 
 [node name="Sprite" type="TextureRect" parent="."]
@@ -245,3 +249,8 @@ mouse_filter = 2
 texture = ExtResource("8_v2bvu")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(125, 175)
+shape = SubResource("RectangleShape2D_deg3g")
