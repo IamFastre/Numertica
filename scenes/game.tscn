@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cl5e146pla2a" path="res://assets/backgrounds/background.tscn" id="1_cx3rt"]
 [ext_resource type="PackedScene" uid="uid://dp0rfuihr2ia4" path="res://assets/backgrounds/blueprint/blueprint_scene.tscn" id="1_eboum"]
-[ext_resource type="Texture2D" uid="uid://dudbeps6h4e31" path="res://components/cards/add/foreground.png" id="4_37bpg"]
+[ext_resource type="Texture2D" uid="uid://dudbeps6h4e31" path="res://items/cards/add/foreground.png" id="4_37bpg"]
 [ext_resource type="PackedScene" uid="uid://d0vfb4abomtui" path="res://scenes/card.tscn" id="4_827eh"]
-[ext_resource type="Texture2D" uid="uid://b0pl7kickx4t4" path="res://components/cards/add/background.png" id="5_h8bh3"]
+[ext_resource type="Texture2D" uid="uid://b0pl7kickx4t4" path="res://items/cards/add/background.png" id="5_h8bh3"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,8 +17,8 @@ ruler_unit_length = 7.5
 anchor_mode = 0
 
 [node name="Card" parent="." instance=ExtResource("4_827eh")]
-position = Vector2(511, 296)
-card_name = "Addition"
+position = Vector2(381, 313)
+card_name = "addition"
 cost = 2
 foreground_texture = ExtResource("4_37bpg")
 background_texture = ExtResource("5_h8bh3")

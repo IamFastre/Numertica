@@ -29,12 +29,6 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 @onready var parameters_brackets = $Sprite/Canvas/Band/Brackets
 @onready var parameters_label = $Sprite/Canvas/Band/Parameters
 
-var mouse_in:bool = false :
-	get:
-		return mouse_in
-	set(value):
-		mouse_in = value
-
 func configure():
 	name_node.text = card_name
 	canvas.self_modulate = canvas_color
@@ -53,18 +47,6 @@ func configure():
 	cost_icon.self_modulate = Card.COST_COLOR[cost]
 	type_background.self_modulate = sprite_color
 	cost_background.self_modulate = sprite_color
-
-func handle_drag():
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		print('clicked inside' if mouse_in else 'clicked somewhere')
-
-func _mouse_enter():
-	print('IN')
-	mouse_in = true
-
-func _mouse_exit():
-	print('OUT')
-	mouse_in = false
 
 func _process(_delta):
 	configure()
