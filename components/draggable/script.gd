@@ -4,7 +4,7 @@ extends Button
 
 var parent:Node2D = custom_parent
 var is_dragging:bool = false
-var drag_offset = Vector2()
+var drag_offset:Vector2 = Vector2(0, 0)
 
 func _ready() -> void:
 	if not parent:

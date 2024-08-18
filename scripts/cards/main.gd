@@ -13,21 +13,21 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 @export var sprite_color:Color = Color.WHITE
 @export var parameters:Array[Dictionary]
 
-@onready var sprite = $Sprite
-@onready var canvas = $Sprite/Canvas
-@onready var background = $Sprite/Canvas/Art/Background
-@onready var foreground = $Sprite/Canvas/Art/Foreground
-@onready var name_node = $Sprite/Canvas/CardName
+@onready var sprite := $Sprite
+@onready var canvas := $Sprite/Canvas
+@onready var background := $Sprite/Canvas/Art/Background
+@onready var foreground := $Sprite/Canvas/Art/Foreground
+@onready var name_node := $Sprite/Canvas/CardName
 
-@onready var type_icon = $Sprite/Corners/Left/Type
-@onready var cost_icon = $Sprite/Corners/Right/Cost
-@onready var type_background = $Sprite/Corners/Left
-@onready var cost_background = $Sprite/Corners/Right
+@onready var type_icon := $Sprite/Corners/Left/Type
+@onready var cost_icon := $Sprite/Corners/Right/Cost
+@onready var type_background := $Sprite/Corners/Left
+@onready var cost_background := $Sprite/Corners/Right
 
-@onready var band = $Sprite/Canvas/Band
-@onready var separator = $Sprite/Canvas/Separator
-@onready var parameters_brackets = $Sprite/Canvas/Band/Brackets
-@onready var parameters_label = $Sprite/Canvas/Band/Parameters
+@onready var band := $Sprite/Canvas/Band
+@onready var separator := $Sprite/Canvas/Separator
+@onready var parameters_brackets := $Sprite/Canvas/Band/Brackets
+@onready var parameters_label := $Sprite/Canvas/Band/Parameters
 
 func configure():
 	name_node.text = card_name
