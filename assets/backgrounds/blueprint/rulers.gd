@@ -2,7 +2,7 @@ class_name BlueprintRulers extends Control
 
 @export var parent:Blueprint
 
-func _draw():
+func _draw() -> void:
 	var unit_length:float = parent.ruler_unit_length
 	var big_unit_repetition:int = parent.ruler_big_unit_repetition
 	var dash_length:int = parent.ruler_dash_length

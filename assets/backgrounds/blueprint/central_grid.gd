@@ -2,7 +2,7 @@ class_name BlueprintCentralGrid extends Control
 
 @export var parent:Blueprint
 
-func _draw():
+func _draw() -> void:
 	var dim:float = parent.grid_cell_dimention
 	var padding:int = parent.grid_cell_padding
 	var line_width:float = parent.grid_line_width

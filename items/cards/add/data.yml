@@ -11,3 +11,4 @@ card:
       desc: Amount to be added.
   style:
     background-color: 0fa98e
+    border-color: ffffff
