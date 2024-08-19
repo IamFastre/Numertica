@@ -1,33 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc1ioqiqay80i"]
+[gd_scene load_steps=4 format=3 uid="uid://bc1ioqiqay80i"]
 
 [ext_resource type="PackedScene" uid="uid://cl5e146pla2a" path="res://assets/backgrounds/background.tscn" id="1_cx3rt"]
 [ext_resource type="PackedScene" uid="uid://dp0rfuihr2ia4" path="res://assets/backgrounds/blueprint/blueprint_scene.tscn" id="1_eboum"]
-[ext_resource type="Texture2D" uid="uid://dudbeps6h4e31" path="res://items/cards/add/foreground.png" id="4_37bpg"]
-[ext_resource type="PackedScene" uid="uid://d0vfb4abomtui" path="res://scenes/card.tscn" id="4_827eh"]
-[ext_resource type="Texture2D" uid="uid://b0pl7kickx4t4" path="res://items/cards/add/background.png" id="5_h8bh3"]
 [ext_resource type="PackedScene" uid="uid://brkhub7up6pae" path="res://scenes/hand.tscn" id="6_ky8g0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_cx3rt")]
 
 [node name="Blueprint" parent="Background" instance=ExtResource("1_eboum")]
 ruler_unit_length = 7.5
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
-[node name="Card" parent="." instance=ExtResource("4_827eh")]
-position = Vector2(570, 208)
-card_name = "addition"
-cost = 2
-foreground_texture = ExtResource("4_37bpg")
-background_texture = ExtResource("5_h8bh3")
-canvas_color = Color(0.0588235, 0.662745, 0.556863, 1)
-parameters = Array[Dictionary]([{
-"name": "X"
-}, {
-"name": "Y"
-}])
-
 [node name="Hand" parent="." instance=ExtResource("6_ky8g0")]
+
+[node name="Camera2D" type="Camera2D" parent="Hand"]
+
+[node name="Icon" type="Button" parent="."]
+offset_left = -591.0
+offset_top = -315.0
+offset_right = -439.0
+offset_bottom = -257.0
+text = "Replay"
+
+[connection signal="pressed" from="Icon" to="Hand" method="_on_icon_pressed"]

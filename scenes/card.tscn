@@ -27,8 +27,10 @@ script = ExtResource("1_7a6ey")
 
 [node name="Sprite" type="TextureRect" parent="."]
 clip_contents = true
-offset_right = 250.0
-offset_bottom = 350.0
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("2_mpd6y")
 expand_mode = 1
@@ -250,8 +252,11 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(125, 175)
 shape = SubResource("RectangleShape2D_deg3g")
 
 [node name="DraggableComponent" parent="." instance=ExtResource("9_c2o71")]
-offset_bottom = 350.0
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+metadata/_edit_use_anchors_ = true
