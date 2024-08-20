@@ -22,14 +22,14 @@ func _draw() -> void:
 		var y_level = l * unit_length + y_padding
 		var start  = Vector2(0, y_level)
 		var finish = Vector2(dash_length * 2 if l % big_unit_repetition == 0 else dash_length, y_level)
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)
 
 	# Right side
 	for r in range(y_count + 1):
 		var y_level = r * unit_length + y_padding
 		var start  = Vector2(screensize.x, y_level)
 		var finish = Vector2(screensize.x - (dash_length * 2 if r % big_unit_repetition == 0 else dash_length), y_level)
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)
 
 	# ============================== Horizontals ============================== #
 
@@ -42,11 +42,11 @@ func _draw() -> void:
 		var x_level = t * unit_length + x_padding
 		var start  = Vector2(x_level, 0)
 		var finish = Vector2(x_level, dash_length * 2 if t % big_unit_repetition == 0 else dash_length)
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)
 
 	# Bottom side
 	for b in range(x_count + 1):
 		var x_level = b * unit_length + x_padding
 		var start  = Vector2(x_level, screensize.y)
 		var finish = Vector2(x_level, screensize.y - (dash_length * 2 if b % big_unit_repetition == 0 else dash_length))
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)

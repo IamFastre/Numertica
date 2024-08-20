@@ -22,9 +22,9 @@ func _draw() -> void:
 	for x in range(x_count + 1):
 		var start  = Vector2(x * dim, 0)
 		var finish = Vector2(x * dim, height)
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)
 
 	for y in range(y_count + 1):
 		var start  = Vector2(0, y * dim)
 		var finish = Vector2(width, y * dim)
-		draw_line(start, finish, line_color, line_width)
+		draw_line(start, finish, line_color, line_width, true)
