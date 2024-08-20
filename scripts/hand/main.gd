@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 		if not card.is_dragging:
 			card.position = lerp(card.position, calculate_target_position(i), delta * 3)
 			card.rotation = lerp(card.rotation, calculate_target_rotation(i), delta * 3)
+			card.scale = lerp(card.scale, card.default_scale, delta * 5)
 		else:
 			selected_card = card
 

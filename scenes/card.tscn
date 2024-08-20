@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=15 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://c3edcmxg5xksl" path="res://assets/cards/parts/shape.png" id="2_mpd6y"]
+[ext_resource type="Texture2D" uid="uid://plv1ib6xch3h" path="res://items/cards/{template}/foreground.png" id="2_o6c5s"]
+[ext_resource type="Texture2D" uid="uid://cg7xn2e34eftj" path="res://items/cards/{template}/background.png" id="3_e5idg"]
 [ext_resource type="LabelSettings" uid="uid://c6yet1dr421yr" path="res://resources/card_name.tres" id="3_go25d"]
 [ext_resource type="Texture2D" uid="uid://dugrg6qibcgnx" path="res://assets/cards/parts/band.png" id="4_i63lc"]
 [ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="5_kfhyl"]
@@ -21,9 +23,11 @@ font_size = 14
 size = Vector2(250, 350)
 
 [node name="Card" type="Area2D"]
-scale = Vector2(0.666, 0.666)
+scale = Vector2(0.5, 0.5)
 input_pickable = false
 script = ExtResource("1_7a6ey")
+foreground_texture = ExtResource("2_o6c5s")
+background_texture = ExtResource("3_e5idg")
 
 [node name="Sprite" type="TextureRect" parent="."]
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
@@ -77,6 +81,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("3_e5idg")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -89,6 +94,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_o6c5s")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true

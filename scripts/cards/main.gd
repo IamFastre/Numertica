@@ -29,10 +29,11 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 @onready var parameters_brackets := $Sprite/Canvas/Band/Brackets
 @onready var parameters_label := $Sprite/Canvas/Band/Parameters
 
-
 var is_dragging:bool :
 	get:
 		return $DraggableComponent.is_dragging
+
+var default_scale = scale
 
 # ========================================================================== #
 
@@ -46,6 +47,7 @@ func _on_drag_start() -> void:
 
 func _on_dragging(delta:float) -> void:
 	rotation = lerp(rotation, 0.0, delta * 5)
+	scale = lerp(scale, default_scale * 1.5, delta * 5)
 
 func _on_drag_end() -> void:
 	z_index = 0
