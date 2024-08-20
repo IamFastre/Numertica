@@ -9,21 +9,9 @@ const ICONS_PATH = "res://assets/cards/icon/%s.png"
 @export var card_type:Card.Types
 @export var foreground_texture:Texture2D
 @export var background_texture:Texture2D
-@export var card_color:Color = Color.BLACK
-@export var sprite_color:Color = Color.WHITE
+@export var card_color:Color = Color("363d52")
+@export var sprite_color:Color = Color("212532")
 @export var parameters:Array[Dictionary]
-
-func properties(given_name:String, given_cost:int, icon:Card.Icons, type:Card.Types, fg_path:String, bg_path:String, params:Array[Dictionary], style:Dictionary) -> void:
-	card_name = given_name
-	cost = given_cost
-	card_icon = icon
-	card_type = type
-	foreground_texture = load(fg_path)
-	background_texture = load(bg_path)
-	parameters = params
-	card_color = style.get('background-color')
-	sprite_color = style.get('border-color')
-
 
 @onready var sprite := $Sprite
 @onready var canvas := $Sprite/Canvas
@@ -40,6 +28,29 @@ func properties(given_name:String, given_cost:int, icon:Card.Icons, type:Card.Ty
 @onready var separator := $Sprite/Canvas/Separator
 @onready var parameters_brackets := $Sprite/Canvas/Band/Brackets
 @onready var parameters_label := $Sprite/Canvas/Band/Parameters
+
+
+var is_dragging:bool :
+	get:
+		return $DraggableComponent.is_dragging
+
+# ========================================================================== #
+
+func _process(_delta:float) -> void:
+	configure()
+
+# ========================================================================== #
+
+func _on_drag_start() -> void:
+	z_index = 1
+
+func _on_dragging(delta:float) -> void:
+	rotation = lerp(rotation, 0.0, delta * 5)
+
+func _on_drag_end() -> void:
+	z_index = 0
+
+# ========================================================================== #
 
 func configure() -> void:
 	name_node.text = card_name
@@ -60,5 +71,13 @@ func configure() -> void:
 	type_background.self_modulate = sprite_color
 	cost_background.self_modulate = sprite_color
 
-func _process(_delta:float) -> void:
-	configure()
+func properties(given_name:String, given_cost:int, icon:Card.Icons, type:Card.Types, fg_path:String, bg_path:String, params:Array[Dictionary], style:Dictionary) -> void:
+	card_name = given_name
+	cost = given_cost
+	card_icon = icon
+	card_type = type
+	foreground_texture = load(fg_path)
+	background_texture = load(bg_path)
+	parameters = params
+	card_color = style.get('background-color')
+	sprite_color = style.get('border-color')

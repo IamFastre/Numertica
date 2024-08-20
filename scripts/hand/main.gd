@@ -41,9 +41,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var el_cards := card_group.get_children()
 	for i in range(el_cards.size()):
-		var card := el_cards[i]
-		card.position = lerp(card.position, calculate_target_position(i), delta * 3)
-		card.rotation = lerp(card.rotation, calculate_target_rotation(i), delta * 3)
+		var card := el_cards[i] as CardNode
+		if not card.is_dragging:
+			card.position = lerp(card.position, calculate_target_position(i), delta * 3)
+			card.rotation = lerp(card.rotation, calculate_target_rotation(i), delta * 3)
 
 # ========================================================================== #
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dugrg6qibcgnx" path="res://assets/cards/parts/band.png" id="4_i63lc"]
 [ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="5_kfhyl"]
 [ext_resource type="Texture2D" uid="uid://djoaj7bqlpvc5" path="res://assets/cards/parts/corner.png" id="6_mn60j"]
-[ext_resource type="Texture2D" uid="uid://bss3ws8voal1w" path="res://assets/cards/icon/heal.png" id="7_7ia5q"]
+[ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/icon/arithmetic.png" id="7_glwvx"]
 [ext_resource type="Texture2D" uid="uid://6chhd5nflvr3" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
 [ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
 
@@ -26,6 +26,7 @@ input_pickable = false
 script = ExtResource("1_7a6ey")
 
 [node name="Sprite" type="TextureRect" parent="."]
+self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 clip_contents = true
 offset_left = -125.0
 offset_top = -175.0
@@ -37,7 +38,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Canvas" type="TextureRect" parent="Sprite"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.211765, 0.239216, 0.321569, 1)
 clip_children = 2
 layout_mode = 1
 anchors_preset = -1
@@ -101,9 +102,11 @@ anchor_bottom = 0.731
 offset_top = -2.575
 offset_bottom = 2.425
 mouse_filter = 2
+color = Color(0.129412, 0.145098, 0.196078, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Band" type="TextureRect" parent="Sprite/Canvas"]
+self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.111
@@ -121,7 +124,7 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Brackets" type="Label" parent="Sprite/Canvas/Band"]
-self_modulate = Color(0.87451, 0, 0.243137, 1)
+self_modulate = Color(1, 0.658824, 0.0509804, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,7 +148,7 @@ max_lines_visible = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Parameters" type="Label" parent="Sprite/Canvas/Band"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.211765, 0.239216, 0.321569, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,6 +201,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Left" type="TextureRect" parent="Sprite/Corners"]
+self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.2
@@ -216,12 +220,13 @@ anchor_top = 0.15
 anchor_right = 0.85
 anchor_bottom = 0.85
 mouse_filter = 2
-texture = ExtResource("7_7ia5q")
+texture = ExtResource("7_glwvx")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Right" type="TextureRect" parent="Sprite/Corners"]
+self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.8
@@ -260,3 +265,7 @@ offset_top = -175.0
 offset_right = 125.0
 offset_bottom = 175.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="on_drag_end" from="DraggableComponent" to="." method="_on_drag_end"]
+[connection signal="on_drag_start" from="DraggableComponent" to="." method="_on_drag_start"]
+[connection signal="on_dragging" from="DraggableComponent" to="." method="_on_dragging"]
