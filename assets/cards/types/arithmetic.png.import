@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cliv54jdpe7cd"
-path="res://.godot/imported/arithmetic.png-d8a98f3f51d65f3d2ba4dd529bf304f4.ctex"
+path="res://.godot/imported/arithmetic.png-35a91bb339b63c6e0e41d8f6daeae2d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/icon/arithmetic.png"
-dest_files=["res://.godot/imported/arithmetic.png-d8a98f3f51d65f3d2ba4dd529bf304f4.ctex"]
+source_file="res://assets/cards/types/arithmetic.png"
+dest_files=["res://.godot/imported/arithmetic.png-35a91bb339b63c6e0e41d8f6daeae2d4.ctex"]
 
 [params]
 

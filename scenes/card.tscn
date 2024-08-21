@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0vfb4abomtui"]
 
-[ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
-[ext_resource type="Texture2D" uid="uid://plv1ib6xch3h" path="res://items/cards/{template}/foreground.png" id="2_o6c5s"]
-[ext_resource type="Texture2D" uid="uid://cg7xn2e34eftj" path="res://items/cards/{template}/background.png" id="3_e5idg"]
+[ext_resource type="Script" path="res://scripts/scenes/card.gd" id="1_7a6ey"]
+[ext_resource type="Texture2D" uid="uid://plv1ib6xch3h" path="res://assets/cards/foregrounds/hash.png" id="2_o6c5s"]
+[ext_resource type="Texture2D" uid="uid://cg7xn2e34eftj" path="res://assets/cards/backgrounds/dot_grid.png" id="3_e5idg"]
 [ext_resource type="Texture2D" uid="uid://cenb7pire8i36" path="res://assets/cards/parts/band.png" id="4_i63lc"]
 [ext_resource type="Texture2D" uid="uid://dnjbj2f5n00tg" path="res://assets/cards/parts/bulk.png" id="4_ul6wl"]
-[ext_resource type="Texture2D" uid="uid://dmjmqes878lka" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
+[ext_resource type="Texture2D" uid="uid://bkv4jjebkgwwd" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
 [ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="7_37i1n"]
-[ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/icon/arithmetic.png" id="7_glwvx"]
+[ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/types/arithmetic.png" id="7_glwvx"]
 [ext_resource type="Texture2D" uid="uid://bvu8rrpqawwh1" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
 [ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
 
@@ -29,11 +29,9 @@ size = Vector2(250, 350)
 scale = Vector2(0.5, 0.5)
 input_pickable = false
 script = ExtResource("1_7a6ey")
-parameters = Array[Dictionary]([])
 
 [node name="Sprite" type="Control" parent="."]
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
-clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = -125.0
@@ -63,9 +61,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Art" type="Control" parent="Sprite"]
 layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.714
-offset_bottom = 0.0999908
+anchor_left = 0.03
+anchor_top = 0.021
+anchor_right = 0.97
+anchor_bottom = 0.693
+offset_top = 0.15
+offset_bottom = -0.0500031
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
@@ -115,9 +116,9 @@ self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
-anchor_top = 0.643
+anchor_top = 0.631571
 anchor_right = 0.9
-anchor_bottom = 0.786
+anchor_bottom = 0.774571
 offset_top = -0.0500031
 offset_right = -1.52588e-05
 offset_bottom = -0.100006

@@ -1,18 +1,16 @@
 @tool
 class_name CardNode extends Area2D
 
-const TYPEICONS_PATH = "res://assets/cards/icon/%s.png"
+const TYPEICONS_PATH = "res://assets/cards/types/%s.png"
 
 @export var card_name:String = "Card"
 @export var cost:int = 0
 @export var card_icon:Card.Icon = Card.Icon.arithmetic
 @export var card_type:Card.Type = Card.Type.effect
-@export var foreground_texture:Texture2D = preload("res://items/cards/{template}/foreground.png")
-@export var background_texture:Texture2D = preload("res://items/cards/{template}/background.png")
-@export var accent_color:Color = Color("4588b9")
-@export var bulk_color:Color = Color("363d52")
-@export var frame_color:Color = Color("212532")
-@export var parameters:Array[Dictionary] = [{ "name": "x" }]
+@export var foreground_texture:Texture2D = preload("res://assets/cards/foregrounds/hash.png")
+@export var background_texture:Texture2D = preload("res://assets/cards/backgrounds/dot_grid.png")
+@export var card_style:CardStyle = CardStyle.new()
+@export var parameters:Array[CardParameter]
 
 
 @onready var name_node:Label = $Sprite/CardName
@@ -56,8 +54,8 @@ func _on_drag_end() -> void:
 
 func configure() -> void:
 	name_node.text = card_name
-	frame.self_modulate = frame_color
-	bulk.self_modulate = bulk_color
+	frame.self_modulate = card_style.frame_color
+	bulk.self_modulate = card_style.bulk_color
 
 	foreground_art.texture = foreground_texture
 	background_art.texture = background_texture
@@ -66,9 +64,10 @@ func configure() -> void:
 	cost_icon.self_modulate = Card.COST_COLOR[cost]
 
 	if parameters.size() > 0:
-		band.self_modulate = frame_color
+		band.visible = true
+		band.self_modulate = card_style.frame_color
 		parameters_brackets.self_modulate = Card.ICON_COLOR[card_icon]
 		parameters_label.text = ', '.join(parameters.map(func(param): return param.get('name')))
-		parameters_label.self_modulate = accent_color
+		parameters_label.self_modulate = card_style.accent_color
 	else:
 		band.visible = false

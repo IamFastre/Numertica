@@ -20,14 +20,17 @@ const COST_COLOR = [
    Color("df003e"),
 ]
 
-@export_group("Main")
-@export var id:String
-@export var name:String
-@export var description:String
-@export_range(0, 2) var cost:int
-@export var type:Type
-@export var icon:Icon
+@export var id:String = "card"
+@export var name:String = "Card"
+@export var description:String = "Card template"
 
-@export_group("Others")
-@export var parameters:Array[CardParameter]
-@export var style:CardStyle
+@export_group("Looks")
+@export var icon:Icon = Icon.arithmetic
+@export var style:CardStyle = CardStyle.new()
+@export var foreground_texture:Texture2D = preload("res://assets/cards/foregrounds/hash.png")
+@export var background_texture:Texture2D = preload("res://assets/cards/backgrounds/dot_grid.png")
+
+@export_group("Function")
+@export_range(0, 2) var cost:int = 0
+@export var type:Type = Type.effect
+@export var parameters:Array[CardParameter] = []
