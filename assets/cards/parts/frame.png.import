@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cenb7pire8i36"
-path="res://.godot/imported/band.png-9a23a50da3bde5db8acadd847048f41a.ctex"
+uid="uid://dmjmqes878lka"
+path="res://.godot/imported/frame.png-8317df7bee5deb7612b387fa7d1cc067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/parts/band.png"
-dest_files=["res://.godot/imported/band.png-9a23a50da3bde5db8acadd847048f41a.ctex"]
+source_file="res://assets/cards/parts/frame.png"
+dest_files=["res://.godot/imported/frame.png-8317df7bee5deb7612b387fa7d1cc067.ctex"]
 
 [params]
 

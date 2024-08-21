@@ -1,22 +1,22 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/cards/main.gd" id="1_7a6ey"]
-[ext_resource type="Texture2D" uid="uid://c3edcmxg5xksl" path="res://assets/cards/parts/shape.png" id="2_mpd6y"]
 [ext_resource type="Texture2D" uid="uid://plv1ib6xch3h" path="res://items/cards/{template}/foreground.png" id="2_o6c5s"]
 [ext_resource type="Texture2D" uid="uid://cg7xn2e34eftj" path="res://items/cards/{template}/background.png" id="3_e5idg"]
 [ext_resource type="LabelSettings" uid="uid://c6yet1dr421yr" path="res://resources/card_name.tres" id="3_go25d"]
-[ext_resource type="Texture2D" uid="uid://dugrg6qibcgnx" path="res://assets/cards/parts/band.png" id="4_i63lc"]
-[ext_resource type="FontFile" uid="uid://c0rce8vnr01sj" path="res://assets/fonts/WorkSans/WorkSans-Medium.ttf" id="5_kfhyl"]
-[ext_resource type="Texture2D" uid="uid://djoaj7bqlpvc5" path="res://assets/cards/parts/corner.png" id="6_mn60j"]
+[ext_resource type="Texture2D" uid="uid://cenb7pire8i36" path="res://assets/cards/parts/band.png" id="4_i63lc"]
+[ext_resource type="Texture2D" uid="uid://dnjbj2f5n00tg" path="res://assets/cards/parts/bulk.png" id="4_ul6wl"]
+[ext_resource type="Texture2D" uid="uid://dmjmqes878lka" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
+[ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="7_37i1n"]
 [ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/icon/arithmetic.png" id="7_glwvx"]
-[ext_resource type="Texture2D" uid="uid://6chhd5nflvr3" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
+[ext_resource type="Texture2D" uid="uid://bvu8rrpqawwh1" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
 [ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf210"]
-font = ExtResource("5_kfhyl")
+font = ExtResource("7_37i1n")
 
 [sub_resource type="LabelSettings" id="LabelSettings_k83nf"]
-font = ExtResource("5_kfhyl")
+font = ExtResource("7_37i1n")
 font_size = 14
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deg3g"]
@@ -26,54 +26,46 @@ size = Vector2(250, 350)
 scale = Vector2(0.5, 0.5)
 input_pickable = false
 script = ExtResource("1_7a6ey")
-foreground_texture = ExtResource("2_o6c5s")
-background_texture = ExtResource("3_e5idg")
 
-[node name="Sprite" type="TextureRect" parent="."]
+[node name="Sprite" type="Control" parent="."]
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 clip_contents = true
+layout_mode = 3
+anchors_preset = 0
 offset_left = -125.0
 offset_top = -175.0
 offset_right = 125.0
 offset_bottom = 175.0
 mouse_filter = 2
-texture = ExtResource("2_mpd6y")
-expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Canvas" type="TextureRect" parent="Sprite"]
+[node name="Bulk" type="TextureRect" parent="Sprite"]
 self_modulate = Color(0.211765, 0.239216, 0.321569, 1)
 clip_children = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.036
-anchor_right = 0.95
-anchor_bottom = 0.964
-offset_top = -0.1
-offset_right = -1.52588e-05
-offset_bottom = 0.0999756
+anchor_left = -0.2
+anchor_top = -0.143
+anchor_right = 1.2
+anchor_bottom = 1.143
+offset_top = 0.0500031
+offset_bottom = -0.0499878
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_mpd6y")
+texture = ExtResource("4_ul6wl")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Art" type="Control" parent="Sprite/Canvas"]
+[node name="Art" type="Control" parent="Sprite"]
 layout_mode = 1
-anchor_left = -0.056
-anchor_top = -0.038
-anchor_right = 1.056
-anchor_bottom = 0.731
-offset_left = 0.0999918
-offset_top = -0.150016
-offset_right = -0.0999756
-offset_bottom = -0.0749969
+anchor_right = 1.0
+anchor_bottom = 0.714
+offset_bottom = 0.0999908
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="TextureRect" parent="Sprite/Canvas/Art"]
+[node name="Background" type="TextureRect" parent="Sprite/Art"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,7 +78,7 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Foreground" type="TextureRect" parent="Sprite/Canvas/Art"]
+[node name="Foreground" type="TextureRect" parent="Sprite/Art"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,101 +91,84 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Separator" type="ColorRect" parent="Sprite/Canvas"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.731
-anchor_right = 1.0
-anchor_bottom = 0.731
-offset_top = -2.575
-offset_bottom = 2.425
-mouse_filter = 2
-color = Color(0.129412, 0.145098, 0.196078, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Band" type="TextureRect" parent="Sprite/Canvas"]
+[node name="Frame" type="TextureRect" parent="Sprite"]
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.692
-anchor_right = 0.889
-anchor_bottom = 0.769
-offset_left = 0.024992
-offset_top = 0.0999908
-offset_right = -0.0249939
-offset_bottom = 0.0749969
+anchor_left = -0.2
+anchor_top = -0.143
+anchor_right = 1.2
+anchor_bottom = 1.143
+offset_top = 0.0500031
+offset_bottom = -0.0499878
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xidi0")
+expand_mode = 1
+
+[node name="Band" type="TextureRect" parent="Sprite"]
+self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.643
+anchor_right = 0.9
+anchor_bottom = 0.786
+offset_top = -0.0500031
+offset_right = -1.52588e-05
+offset_bottom = -0.100006
 mouse_filter = 2
 texture = ExtResource("4_i63lc")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Brackets" type="Label" parent="Sprite/Canvas/Band"]
+[node name="Brackets" type="Label" parent="Sprite/Band"]
 self_modulate = Color(1, 0.658824, 0.0509804, 1)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.46
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.46
 offset_left = -78.75
-offset_top = -10.5
+offset_top = -12.5
 offset_right = 78.75
-offset_bottom = 14.5
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 12.5)
-text = "{                          }"
+text = "{                             }"
 label_settings = SubResource("LabelSettings_lf210")
 horizontal_alignment = 1
-vertical_alignment = 3
+vertical_alignment = 1
+justification_flags = 0
 clip_text = true
 text_overrun_behavior = 1
 max_lines_visible = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Parameters" type="Label" parent="Sprite/Canvas/Band"]
+[node name="Parameters" type="Label" parent="Sprite/Band"]
 self_modulate = Color(0.211765, 0.239216, 0.321569, 1)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.54
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.5
+anchor_bottom = 0.54
+offset_left = -66.0
 offset_top = -11.0
-offset_right = 66.5
+offset_right = 66.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 12.5)
+text = "x"
 label_settings = SubResource("LabelSettings_k83nf")
 horizontal_alignment = 1
 vertical_alignment = 3
 clip_text = true
 text_overrun_behavior = 1
-max_lines_visible = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="CardName" type="Label" parent="Sprite/Canvas"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.316
-anchor_top = 0.823
-anchor_right = 0.684
-anchor_bottom = 0.928
-offset_left = -0.100006
-offset_top = 0.0249939
-offset_right = 0.100006
-offset_bottom = -0.100006
-grow_horizontal = 2
-grow_vertical = 2
-text = "Card"
-label_settings = ExtResource("3_go25d")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
 max_lines_visible = 1
 metadata/_edit_use_anchors_ = true
 
@@ -206,24 +181,12 @@ grow_horizontal = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Left" type="TextureRect" parent="Sprite/Corners"]
-self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
+[node name="Type" type="TextureRect" parent="Sprite/Corners"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource("6_mn60j")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Type" type="TextureRect" parent="Sprite/Corners/Left"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.15
+anchor_left = 0.03
 anchor_top = 0.15
-anchor_right = 0.85
+anchor_right = 0.17
 anchor_bottom = 0.85
 mouse_filter = 2
 texture = ExtResource("7_glwvx")
@@ -231,35 +194,39 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Right" type="TextureRect" parent="Sprite/Corners"]
-self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
+[node name="Cost" type="TextureRect" parent="Sprite/Corners"]
+self_modulate = Color(0.462745, 0.909804, 0.415686, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
-mouse_filter = 2
-texture = ExtResource("6_mn60j")
-expand_mode = 1
-stretch_mode = 5
-flip_h = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Cost" type="TextureRect" parent="Sprite/Corners/Right"]
-self_modulate = Color(0.462745, 0.909804, 0.415686, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.25
-anchor_right = 0.75
-anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("8_v2bvu")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CardName" type="Label" parent="Sprite"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3324
+anchor_top = 0.797071
+anchor_right = 0.666
+anchor_bottom = 0.894
+offset_left = 0.399994
+offset_top = 0.0249939
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+text = "Card"
+label_settings = ExtResource("3_go25d")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+max_lines_visible = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
