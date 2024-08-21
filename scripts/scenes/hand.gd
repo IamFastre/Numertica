@@ -33,6 +33,8 @@ func calculate_target_rotation(index:int) -> float:
 
 func add_card(card:CardNode) -> void:
 	card.name = 'card-%s' % card_count
+	card.resource = card.resource.duplicate()
+	card.resource.name = 'card #%s' % (card_count +1)
 	card.global_position.y = get_viewport().get_visible_rect().size.y
 	card_group.add_child(card)
 
