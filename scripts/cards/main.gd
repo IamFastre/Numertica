@@ -5,8 +5,8 @@ const TYPEICONS_PATH = "res://assets/cards/icon/%s.png"
 
 @export var card_name:String = "Card"
 @export var cost:int = 0
-@export var card_icon:Card.Icons = Card.Icons.arithmetic
-@export var card_type:Card.Types = Card.Types.effect
+@export var card_icon:Card.Icon = Card.Icon.arithmetic
+@export var card_type:Card.Type = Card.Type.effect
 @export var foreground_texture:Texture2D = preload("res://items/cards/{template}/foreground.png")
 @export var background_texture:Texture2D = preload("res://items/cards/{template}/background.png")
 @export var accent_color:Color = Color("4588b9")
@@ -62,7 +62,7 @@ func configure() -> void:
 	foreground_art.texture = foreground_texture
 	background_art.texture = background_texture
 
-	type_icon.texture = load(TYPEICONS_PATH % Card.Icons.keys()[card_icon])
+	type_icon.texture = load(TYPEICONS_PATH % Card.Icon.keys()[card_icon])
 	cost_icon.self_modulate = Card.COST_COLOR[cost]
 
 	if parameters.size() > 0:

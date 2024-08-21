@@ -1,7 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c6yet1dr421yr"]
-
-[ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="1_vpide"]
-
-[resource]
-font = ExtResource("1_vpide")
-font_size = 28

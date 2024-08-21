@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Card" load_steps=6 format=3 uid="uid://dmvikoojjwr3d"]
+
+[ext_resource type="Script" path="res://scripts/resources/card_parameter.gd" id="1_ugfhc"]
+[ext_resource type="Script" path="res://scripts/resources/card.gd" id="2_f74eh"]
+[ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="3_u7ntv"]
+
+[sub_resource type="Resource" id="Resource_snpw7"]
+resource_name = "X"
+script = ExtResource("1_ugfhc")
+name = "X"
+description = "Amount to be added."
+type = 0
+
+[sub_resource type="Resource" id="Resource_sacih"]
+script = ExtResource("3_u7ntv")
+accent_color = Color(1, 1, 1, 1)
+bulk_color = Color(0.0588235, 0.662745, 0.556863, 1)
+frame_color = Color(1, 1, 1, 1)
+
+[resource]
+resource_name = "AdditionCard"
+script = ExtResource("2_f74eh")
+id = "add"
+name = "addition"
+description = "Pairs with a number card to add amount {X} to player's health."
+cost = 1
+type = 0
+icon = 0
+parameters = Array[ExtResource("1_ugfhc")]([SubResource("Resource_snpw7")])
+style = SubResource("Resource_sacih")
