@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=25 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/scenes/card.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://plv1ib6xch3h" path="res://assets/cards/foregrounds/hash.png" id="2_o6c5s"]
@@ -7,39 +7,40 @@
 [ext_resource type="Texture2D" uid="uid://cenb7pire8i36" path="res://assets/cards/parts/band.png" id="4_i63lc"]
 [ext_resource type="Texture2D" uid="uid://dnjbj2f5n00tg" path="res://assets/cards/parts/bulk.png" id="4_ul6wl"]
 [ext_resource type="Script" path="res://scripts/resources/card.gd" id="5_lxpq0"]
-[ext_resource type="Texture2D" uid="uid://deaa0vxxrjrte" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
+[ext_resource type="Texture2D" uid="uid://c288kcr687j7n" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
 [ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="6_8pwgf"]
 [ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="7_37i1n"]
-[ext_resource type="Texture2D" uid="uid://cliv54jdpe7cd" path="res://assets/cards/types/arithmetic.png" id="7_glwvx"]
 [ext_resource type="Shader" path="res://card.gdshader" id="7_w1v2u"]
-[ext_resource type="Texture2D" uid="uid://cketvniy38fh3" path="res://assets/cards/parts/bottom_band.png" id="8_saf5m"]
+[ext_resource type="Texture2D" uid="uid://kl3q7tvfmk7u" path="res://assets/cards/parts/half_band.png" id="8_saf5m"]
 [ext_resource type="Texture2D" uid="uid://bvu8rrpqawwh1" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
 [ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
+[ext_resource type="Texture2D" uid="uid://cdpkcl2yswelx" path="res://assets/cards/parts/corner.png" id="11_18idc"]
+[ext_resource type="Texture2D" uid="uid://dnuofqs83c2e8" path="res://assets/cards/types/number.png" id="14_3nk5s"]
 
-[sub_resource type="Resource" id="Resource_qfn2j"]
+[sub_resource type="Resource" id="Resource_t47nf"]
 script = ExtResource("4_a5d1q")
 name = "x"
 description = ""
 type = 0
 
-[sub_resource type="Resource" id="Resource_jbonq"]
+[sub_resource type="Resource" id="Resource_csy5m"]
 script = ExtResource("6_8pwgf")
 accent_color = Color(0.270588, 0.533333, 0.72549, 1)
 bulk_color = Color(0.211765, 0.239216, 0.321569, 1)
 frame_color = Color(0.129412, 0.145098, 0.196078, 1)
 
-[sub_resource type="Resource" id="Resource_8xghp"]
+[sub_resource type="Resource" id="Resource_a2b36"]
 script = ExtResource("5_lxpq0")
 id = "card"
 name = "Card"
 description = "Card template"
 icon = 0
-style = SubResource("Resource_jbonq")
+style = SubResource("Resource_csy5m")
 foreground_texture = ExtResource("2_o6c5s")
 background_texture = ExtResource("3_e5idg")
 cost = 0
 type = 0
-parameters = Array[ExtResource("4_a5d1q")]([SubResource("Resource_qfn2j")])
+parameters = Array[ExtResource("4_a5d1q")]([SubResource("Resource_t47nf")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qivd2"]
 shader = ExtResource("7_w1v2u")
@@ -62,10 +63,10 @@ font_size = 28
 size = Vector2(250, 350)
 
 [node name="Card" type="Area2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 input_pickable = false
 script = ExtResource("1_7a6ey")
-resource = SubResource("Resource_8xghp")
+resource = SubResource("Resource_a2b36")
 
 [node name="Sprite" type="Control" parent="."]
 layout_mode = 3
@@ -133,23 +134,8 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="BottomBand" type="TextureRect" parent="Sprite"]
-self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.917
-anchor_right = 0.9
-anchor_bottom = 1.024
-offset_top = 0.0499878
-offset_right = -1.52588e-05
-offset_bottom = 0.0999756
-texture = ExtResource("8_saf5m")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Frame" type="TextureRect" parent="Sprite"]
-self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
+modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.2
@@ -163,8 +149,70 @@ grow_vertical = 2
 texture = ExtResource("5_xidi0")
 expand_mode = 1
 
-[node name="Band" type="TextureRect" parent="Sprite"]
+[node name="TopNotch" type="TextureRect" parent="Sprite/Frame"]
 visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.214
+anchor_top = 0.638
+anchor_right = 0.786
+anchor_bottom = 0.705
+offset_left = 0.0999908
+offset_top = 0.149994
+offset_right = -0.100006
+offset_bottom = -3.05176e-05
+texture = ExtResource("8_saf5m")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="BottomNotch" type="TextureRect" parent="Sprite/Frame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.214
+anchor_top = 0.833
+anchor_right = 0.786
+anchor_bottom = 0.9
+offset_left = 0.0999908
+offset_top = 0.149963
+offset_right = -0.100006
+offset_bottom = -3.05176e-05
+texture = ExtResource("8_saf5m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LeftCorner" type="TextureRect" parent="Sprite/Frame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.101
+anchor_top = 0.079
+anchor_right = 0.33
+anchor_bottom = 0.257
+offset_left = -0.350002
+offset_top = -0.550003
+offset_right = -0.500008
+offset_bottom = -0.650002
+texture = ExtResource("11_18idc")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RightCorner" type="TextureRect" parent="Sprite/Frame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.672714
+anchor_top = 0.079
+anchor_right = 0.901714
+anchor_bottom = 0.257
+offset_left = -0.449997
+offset_top = -0.550003
+offset_right = -0.600006
+offset_bottom = -0.650002
+texture = ExtResource("11_18idc")
+expand_mode = 1
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Band" type="TextureRect" parent="Sprite"]
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -182,7 +230,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Brackets" type="Label" parent="Sprite/Band"]
-self_modulate = Color(1, 0.658824, 0.0509804, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -243,14 +290,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Type" type="TextureRect" parent="Sprite/Borders"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
-anchor_top = 0.021
-anchor_right = 0.17
-anchor_bottom = 0.121
-offset_top = 0.15
-offset_bottom = 0.149994
+anchor_right = 0.2
+anchor_bottom = 0.143
+offset_bottom = -0.0500145
 mouse_filter = 2
-texture = ExtResource("7_glwvx")
+texture = ExtResource("14_3nk5s")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -292,7 +336,6 @@ max_lines_visible = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_deg3g")
 
 [node name="DraggableComponent" parent="." instance=ExtResource("9_c2o71")]
@@ -300,7 +343,6 @@ offset_left = -125.0
 offset_top = -175.0
 offset_right = 125.0
 offset_bottom = 175.0
-metadata/_edit_use_anchors_ = true
 
 [connection signal="on_drag_end" from="DraggableComponent" to="." method="_on_drag_end"]
 [connection signal="on_drag_start" from="DraggableComponent" to="." method="_on_drag_start"]

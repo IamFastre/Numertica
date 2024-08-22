@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://nxrr8eixwgss"]
+[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://nxrr8eixwgss"]
 
 [ext_resource type="Script" path="res://scripts/resources/card_parameter.gd" id="1_emmls"]
 [ext_resource type="Texture2D" uid="uid://b0pl7kickx4t4" path="res://assets/cards/backgrounds/line_grid.png" id="1_fxqps"]
@@ -10,7 +10,14 @@
 resource_name = "X"
 script = ExtResource("1_emmls")
 name = "X"
-description = "Amount to be added."
+description = "First value to be added."
+type = 0
+
+[sub_resource type="Resource" id="Resource_wskwd"]
+resource_name = "Y"
+script = ExtResource("1_emmls")
+name = "Y"
+description = "Second value to be added."
 type = 0
 
 [sub_resource type="Resource" id="Resource_sacih"]
@@ -23,12 +30,12 @@ frame_color = Color(1, 1, 1, 1)
 resource_name = "AdditionCard"
 script = ExtResource("2_f6gt6")
 id = "add"
-name = "addition"
+name = "add"
 description = "Pairs with a number card to add amount {X} to player's health."
-icon = 0
+icon = 1
 style = SubResource("Resource_sacih")
 foreground_texture = ExtResource("2_kjq2q")
 background_texture = ExtResource("1_fxqps")
 cost = 1
 type = 0
-parameters = Array[ExtResource("1_emmls")]([SubResource("Resource_snpw7")])
+parameters = Array[ExtResource("1_emmls")]([SubResource("Resource_snpw7"), SubResource("Resource_wskwd")])
