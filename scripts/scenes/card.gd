@@ -8,7 +8,7 @@ const TYPEICONS_PATH = "res://assets/cards/types/%s.png"
 @onready var name_node:Label = $Sprite/CardName
 @onready var frame:TextureRect = $Sprite/Frame
 @onready var bulk:TextureRect = $Sprite/Bulk
-@onready var bottom_band:TextureRect = $Sprite/BottomBand
+@onready var top_notch: TextureRect = $Sprite/Frame/TopNotch
 
 @onready var foreground_art:TextureRect = $Sprite/Art/Foreground
 @onready var background_art:TextureRect = $Sprite/Art/Background
@@ -47,23 +47,22 @@ func _on_drag_end() -> void:
 
 func configure() -> void:
 	name_node.text = resource.name
-	frame.self_modulate = resource.style.frame_color
+	frame.modulate = resource.style.frame_color
 	bulk.self_modulate = resource.style.bulk_color
 
 	foreground_art.texture = resource.foreground_texture
 	background_art.texture = resource.background_texture
 
-	type_icon.texture = load(TYPEICONS_PATH % Card.Icon.keys()[resource.type])
+	type_icon.texture = load(TYPEICONS_PATH % Card.Icon.keys()[resource.icon])
 	cost_icon.self_modulate = Card.COST_COLOR[resource.cost]
 
 	if resource.parameters.size() > 0:
 		band.visible = true
-		bottom_band.visible = true
 		band.self_modulate = resource.style.frame_color
-		bottom_band.self_modulate = resource.style.frame_color
-		parameters_brackets.self_modulate = Card.ICON_COLOR[resource.type]
+		parameters_brackets.self_modulate = Card.ICON_COLOR[resource.icon]
 		parameters_label.text = ', '.join(resource.parameters.map(func(param): return param.get('name')))
 		parameters_label.self_modulate = resource.style.accent_color
 	else:
 		band.visible = false
-		bottom_band.visible = false
+
+	top_notch.visible = not band.visible

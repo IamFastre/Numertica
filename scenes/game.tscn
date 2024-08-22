@@ -12,8 +12,6 @@
 ruler_unit_length = 7.5
 
 [node name="Hand" parent="." instance=ExtResource("6_ky8g0")]
-card_spacing = 100.0
-fan_max_height = 50.0
 
 [node name="Camera2D" type="Camera2D" parent="Hand"]
 position = Vector2(0, -250)
