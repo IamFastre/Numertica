@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bss3ws8voal1w"
-path="res://.godot/imported/heal.png-7090070a50378be9c49a91fc3ce5d357.ctex"
+uid="uid://dnuofqs83c2e8"
+path="res://.godot/imported/number.png-c2c939c5684375618c0a5be1b734909c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/types/heal.png"
-dest_files=["res://.godot/imported/heal.png-7090070a50378be9c49a91fc3ce5d357.ctex"]
+source_file="res://assets/cards/types/number.png"
+dest_files=["res://.godot/imported/number.png-c2c939c5684375618c0a5be1b734909c.ctex"]
 
 [params]
 
