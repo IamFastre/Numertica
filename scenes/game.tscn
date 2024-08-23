@@ -48,14 +48,16 @@ text = "Remove"
 [node name="Player" parent="." instance=ExtResource("3_rj4g3")]
 
 [node name="Card2" parent="." instance=ExtResource("4_lhenk")]
-position = Vector2(175, -270)
-scale = Vector2(1, 1)
+position = Vector2(150, -275)
+scale = Vector2(0.75, 0.75)
 resource = ExtResource("6_7l4lm")
+default_scale = Vector2(0.75, 0.75)
 
 [node name="Card" parent="." instance=ExtResource("4_lhenk")]
-position = Vector2(-175, -270)
-scale = Vector2(1, 1)
+position = Vector2(-150, -275)
+scale = Vector2(0.75, 0.75)
 resource = ExtResource("5_or0g1")
+default_scale = Vector2(0.75, 0.75)
 
 [connection signal="pressed" from="UI/AddButton" to="UI/ButtonManager" method="_on_add_button_pressed"]
 [connection signal="pressed" from="UI/RemoveButton" to="UI/ButtonManager" method="_on_remove_button_pressed"]

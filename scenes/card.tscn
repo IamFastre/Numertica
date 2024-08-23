@@ -66,6 +66,7 @@ scale = Vector2(0.4, 0.4)
 input_pickable = false
 script = ExtResource("1_7a6ey")
 resource = SubResource("Resource_a2b36")
+default_scale = Vector2(0.4, 0.4)
 
 [node name="Sprite" type="Control" parent="."]
 layout_mode = 3

@@ -1,3 +1,4 @@
+@tool
 class_name DraggableComponent extends Button
 
 @export var custom_parent:Node2D

@@ -20,16 +20,19 @@ const TYPEICONS_PATH = "res://assets/cards/types/%s.png"
 @onready var parameters_brackets:Label = $Sprite/Band/Brackets
 @onready var parameters_label:Label = $Sprite/Band/Parameters
 
-var is_dragging:bool :
+@export var default_scale:Vector2 = Vector2(0.6, 0.6)
+
+@onready var is_dragging:bool :
 	get:
 		return $DraggableComponent.is_dragging
 
-@onready var default_scale = scale
-
 # ========================================================================== #
 
-func _process(_delta:float) -> void:
+func _process(delta:float) -> void:
 	configure()
+
+	if not is_dragging:
+		scale = lerp(scale, default_scale, delta * 5)
 
 # ========================================================================== #
 
