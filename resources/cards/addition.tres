@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://nxrr8eixwgss"]
 
 [ext_resource type="Script" path="res://scripts/resources/card_parameter.gd" id="1_emmls"]
-[ext_resource type="Texture2D" uid="uid://b0pl7kickx4t4" path="res://assets/cards/backgrounds/line_grid.png" id="1_fxqps"]
+[ext_resource type="Texture2D" uid="uid://dmkw8tl1ohvgu" path="res://assets/cards/backgrounds/line_grid.png" id="1_fxqps"]
 [ext_resource type="Script" path="res://scripts/resources/card.gd" id="2_f6gt6"]
-[ext_resource type="Texture2D" uid="uid://dudbeps6h4e31" path="res://assets/cards/foregrounds/plus.png" id="2_kjq2q"]
+[ext_resource type="Texture2D" uid="uid://de3xat7obkr" path="res://assets/cards/foregrounds/plus.png" id="2_kjq2q"]
 [ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="3_23nqj"]
 
 [sub_resource type="Resource" id="Resource_snpw7"]
@@ -22,9 +22,9 @@ type = 0
 
 [sub_resource type="Resource" id="Resource_sacih"]
 script = ExtResource("3_23nqj")
-accent_color = Color(0.0588235, 0.662745, 0.556863, 1)
-bulk_color = Color(0.0588235, 0.662745, 0.556863, 1)
-frame_color = Color(1, 1, 1, 1)
+accent_color = Color(0.0156863, 0.74902, 0.541176, 1)
+bulk_color = Color(0.219608, 0.45098, 0.45098, 1)
+frame_color = Color(0.894118, 0.94902, 0.905882, 1)
 
 [resource]
 resource_name = "AdditionCard"
@@ -32,10 +32,9 @@ script = ExtResource("2_f6gt6")
 id = "add"
 name = "add"
 description = "Pairs with a number card to add amount {X} to player's health."
-icon = 1
 style = SubResource("Resource_sacih")
 foreground_texture = ExtResource("2_kjq2q")
 background_texture = ExtResource("1_fxqps")
 cost = 1
-type = 0
+type = 1
 parameters = Array[ExtResource("1_emmls")]([SubResource("Resource_snpw7"), SubResource("Resource_wskwd")])

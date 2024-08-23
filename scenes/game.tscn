@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc1ioqiqay80i"]
+[gd_scene load_steps=8 format=3 uid="uid://bc1ioqiqay80i"]
 
 [ext_resource type="PackedScene" uid="uid://cl5e146pla2a" path="res://assets/backgrounds/background.tscn" id="1_cx3rt"]
 [ext_resource type="PackedScene" uid="uid://dp0rfuihr2ia4" path="res://assets/backgrounds/blueprint/blueprint_scene.tscn" id="1_eboum"]
 [ext_resource type="PackedScene" uid="uid://dwuicfv1qvnw8" path="res://scenes/player.tscn" id="3_rj4g3"]
+[ext_resource type="PackedScene" uid="uid://d0vfb4abomtui" path="res://scenes/card.tscn" id="4_lhenk"]
 [ext_resource type="Script" path="res://scripts/button_manager.gd" id="4_y8gae"]
+[ext_resource type="Resource" uid="uid://nxrr8eixwgss" path="res://resources/cards/addition.tres" id="5_or0g1"]
+[ext_resource type="Resource" uid="uid://dmvikoojjwr3d" path="res://resources/cards/subtraction.tres" id="6_7l4lm"]
 
 [node name="Game" type="Node2D"]
 
@@ -43,6 +46,16 @@ offset_bottom = -53.88
 text = "Remove"
 
 [node name="Player" parent="." instance=ExtResource("3_rj4g3")]
+
+[node name="Card2" parent="." instance=ExtResource("4_lhenk")]
+position = Vector2(175, -270)
+scale = Vector2(1, 1)
+resource = ExtResource("6_7l4lm")
+
+[node name="Card" parent="." instance=ExtResource("4_lhenk")]
+position = Vector2(-175, -270)
+scale = Vector2(1, 1)
+resource = ExtResource("5_or0g1")
 
 [connection signal="pressed" from="UI/AddButton" to="UI/ButtonManager" method="_on_add_button_pressed"]
 [connection signal="pressed" from="UI/RemoveButton" to="UI/ButtonManager" method="_on_remove_button_pressed"]

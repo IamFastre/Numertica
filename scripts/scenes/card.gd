@@ -24,7 +24,7 @@ var is_dragging:bool :
 	get:
 		return $DraggableComponent.is_dragging
 
-var default_scale = scale
+@onready var default_scale = scale
 
 # ========================================================================== #
 
@@ -53,13 +53,13 @@ func configure() -> void:
 	foreground_art.texture = resource.foreground_texture
 	background_art.texture = resource.background_texture
 
-	type_icon.texture = load(TYPEICONS_PATH % Card.Icon.keys()[resource.icon])
+	type_icon.texture = load(TYPEICONS_PATH % Card.Type.keys()[resource.type])
 	cost_icon.self_modulate = Card.COST_COLOR[resource.cost]
 
 	if resource.parameters.size() > 0:
 		band.visible = true
 		band.self_modulate = resource.style.frame_color
-		parameters_brackets.self_modulate = Card.ICON_COLOR[resource.icon]
+		parameters_brackets.self_modulate = Card.ICON_COLOR[resource.type]
 		parameters_label.text = ', '.join(resource.parameters.map(func(param): return param.get('name')))
 		parameters_label.self_modulate = resource.style.accent_color
 	else:
