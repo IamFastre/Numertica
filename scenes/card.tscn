@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c288kcr687j7n" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
 [ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="6_8pwgf"]
 [ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="7_37i1n"]
-[ext_resource type="Shader" path="res://card.gdshader" id="7_w1v2u"]
+[ext_resource type="Shader" path="res://shaders/card.gdshader" id="7_w1v2u"]
 [ext_resource type="Texture2D" uid="uid://kl3q7tvfmk7u" path="res://assets/cards/parts/half_band.png" id="8_saf5m"]
 [ext_resource type="Texture2D" uid="uid://bvu8rrpqawwh1" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
 [ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
@@ -146,6 +146,7 @@ offset_top = 0.0500031
 offset_bottom = -0.0499878
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_xidi0")
 expand_mode = 1
 
@@ -161,6 +162,7 @@ offset_left = 0.0999908
 offset_top = 0.149994
 offset_right = -0.100006
 offset_bottom = -3.05176e-05
+mouse_filter = 2
 texture = ExtResource("8_saf5m")
 expand_mode = 1
 stretch_mode = 5
@@ -177,6 +179,7 @@ offset_left = 0.0999908
 offset_top = 0.149963
 offset_right = -0.100006
 offset_bottom = -3.05176e-05
+mouse_filter = 2
 texture = ExtResource("8_saf5m")
 expand_mode = 1
 stretch_mode = 5
@@ -192,6 +195,7 @@ offset_left = -0.350002
 offset_top = -0.550003
 offset_right = -0.500008
 offset_bottom = -0.650002
+mouse_filter = 2
 texture = ExtResource("11_18idc")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -207,6 +211,7 @@ offset_left = -0.449997
 offset_top = -0.550003
 offset_right = -0.600006
 offset_bottom = -0.650002
+mouse_filter = 2
 texture = ExtResource("11_18idc")
 expand_mode = 1
 flip_h = true

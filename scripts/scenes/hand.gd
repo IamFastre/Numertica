@@ -57,14 +57,3 @@ func _process(delta: float) -> void:
 			card.position = lerp(card.position, calculate_target_position(i), delta * 3)
 			card.rotation = lerp(card.rotation, calculate_target_rotation(i), delta * 3)
 			card.scale = lerp(card.scale, card.default_scale, delta * 5)
-
-# ========================================================================== #
-
-func _on_add_button_pressed() -> void:
-	var card:CardNode = card_scene.instantiate()
-	add_card(card)
-
-
-func _on_remove_button_pressed() -> void:
-	var last_card = card_group.get_child(-1)
-	card_group.remove_child(last_card)
