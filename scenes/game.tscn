@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc1ioqiqay80i"]
+[gd_scene load_steps=10 format=3 uid="uid://bc1ioqiqay80i"]
 
 [ext_resource type="PackedScene" uid="uid://cl5e146pla2a" path="res://assets/backgrounds/background.tscn" id="1_cx3rt"]
 [ext_resource type="PackedScene" uid="uid://dp0rfuihr2ia4" path="res://assets/backgrounds/blueprint/blueprint_scene.tscn" id="1_eboum"]
 [ext_resource type="PackedScene" uid="uid://dwuicfv1qvnw8" path="res://scenes/player.tscn" id="3_rj4g3"]
 [ext_resource type="PackedScene" uid="uid://d0vfb4abomtui" path="res://scenes/card.tscn" id="4_lhenk"]
-[ext_resource type="Script" path="res://scripts/button_manager.gd" id="4_y8gae"]
+[ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="4_x5p57"]
+[ext_resource type="Script" path="res://scripts/scenes/ui_manager.gd" id="4_y8gae"]
 [ext_resource type="Resource" uid="uid://nxrr8eixwgss" path="res://resources/cards/addition.tres" id="5_or0g1"]
 [ext_resource type="Resource" uid="uid://dmvikoojjwr3d" path="res://resources/cards/subtraction.tres" id="6_7l4lm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_da0mf"]
+font = ExtResource("4_x5p57")
+font_size = 22
+font_color = Color(0.211765, 0.501961, 1, 1)
 
 [node name="Game" type="Node2D"]
 
@@ -17,35 +23,82 @@ ruler_unit_length = 7.5
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ButtonManager" type="Node" parent="UI" node_paths=PackedStringArray("player")]
+[node name="UIManager" type="Node" parent="UI" node_paths=PackedStringArray("hand", "health_component", "health_label")]
 script = ExtResource("4_y8gae")
-player = NodePath("../../Player")
+hand = NodePath("../../Player/Hand")
+health_component = NodePath("../../Player/HealthComponent")
+health_label = NodePath("../Label")
 
-[node name="AddButton" type="Button" parent="UI"]
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.036
+anchor_right = 0.145
+anchor_bottom = 0.082
+offset_left = 0.0399971
+offset_top = 0.079998
+offset_right = 0.399994
+offset_bottom = -0.0400009
+text = "HP: xx/xx"
+label_settings = SubResource("LabelSettings_da0mf")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="AddHealthButton" type="Button" parent="UI"]
 anchors_preset = -1
 anchor_left = 0.02
-anchor_top = 0.11
-anchor_right = 0.077
-anchor_bottom = 0.179
-offset_left = 0.399998
-offset_top = -54.2
-offset_right = 0.439987
-offset_bottom = -53.88
+anchor_top = 0.035
+anchor_right = 0.032
+anchor_bottom = 0.056
+offset_left = -0.600002
+offset_top = -0.200001
+offset_right = 15.04
+offset_bottom = 15.68
+scale = Vector2(0.5, 0.5)
+text = "+"
+
+[node name="RemoveHealthButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.062
+anchor_right = 0.032
+anchor_bottom = 0.084
+offset_left = -0.600002
+offset_top = 0.359997
+offset_right = 15.04
+offset_bottom = 15.52
+scale = Vector2(0.5, 0.5)
+text = "-"
+
+[node name="AddCardButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.111
+anchor_right = 0.078
+anchor_bottom = 0.181
+offset_left = -0.600002
+offset_top = -4.92001
+offset_right = 0.159996
+offset_bottom = -5.32001
 text = "Add"
 
-[node name="RemoveButton" type="Button" parent="UI"]
+[node name="RemoveCardButton" type="Button" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.08
-anchor_top = 0.11
-anchor_right = 0.137
-anchor_bottom = 0.179
-offset_left = 0.599991
-offset_top = -54.2
-offset_right = 0.639984
-offset_bottom = -53.88
+anchor_left = 0.082
+anchor_top = 0.111
+anchor_right = 0.139
+anchor_bottom = 0.181
+offset_left = 0.0399933
+offset_top = -4.92001
+offset_right = 2.07999
+offset_bottom = -5.32001
 text = "Remove"
 
 [node name="Player" parent="." instance=ExtResource("3_rj4g3")]
+
+[node name="Camera" type="Camera2D" parent="Player"]
+position = Vector2(0, -250)
 
 [node name="Card2" parent="." instance=ExtResource("4_lhenk")]
 position = Vector2(150, -275)
@@ -59,5 +112,9 @@ scale = Vector2(0.75, 0.75)
 resource = ExtResource("5_or0g1")
 default_scale = Vector2(0.75, 0.75)
 
-[connection signal="pressed" from="UI/AddButton" to="UI/ButtonManager" method="_on_add_button_pressed"]
-[connection signal="pressed" from="UI/RemoveButton" to="UI/ButtonManager" method="_on_remove_button_pressed"]
+[connection signal="pressed" from="UI/AddHealthButton" to="UI/UIManager" method="_on_add_health_pressed"]
+[connection signal="pressed" from="UI/RemoveHealthButton" to="UI/UIManager" method="_on_remove_health_pressed"]
+[connection signal="pressed" from="UI/AddCardButton" to="UI/UIManager" method="_on_add_button_pressed"]
+[connection signal="pressed" from="UI/RemoveCardButton" to="UI/UIManager" method="_on_remove_button_pressed"]
+
+[editable path="Player"]

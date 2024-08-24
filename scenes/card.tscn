@@ -13,7 +13,7 @@
 [ext_resource type="Shader" path="res://shaders/card.gdshader" id="7_w1v2u"]
 [ext_resource type="Texture2D" uid="uid://kl3q7tvfmk7u" path="res://assets/cards/parts/half_band.png" id="8_saf5m"]
 [ext_resource type="Texture2D" uid="uid://bvu8rrpqawwh1" path="res://assets/cards/parts/cost.png" id="8_v2bvu"]
-[ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable/draggable.tscn" id="9_c2o71"]
+[ext_resource type="PackedScene" uid="uid://21jc8njqn5go" path="res://components/draggable.tscn" id="9_c2o71"]
 [ext_resource type="Texture2D" uid="uid://cdpkcl2yswelx" path="res://assets/cards/parts/corner.png" id="11_18idc"]
 [ext_resource type="Texture2D" uid="uid://dnuofqs83c2e8" path="res://assets/cards/types/number.png" id="14_3nk5s"]
 
