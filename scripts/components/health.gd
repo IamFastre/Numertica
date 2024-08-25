@@ -47,4 +47,3 @@ func reanimate():
 
 func _ready() -> void:
 	reanimate()
-	print(points)

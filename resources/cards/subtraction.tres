@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://dmvikoojjwr3d"]
+[gd_resource type="Resource" script_class="ActionCard" load_steps=9 format=3 uid="uid://dmvikoojjwr3d"]
 
 [ext_resource type="Texture2D" uid="uid://dmkw8tl1ohvgu" path="res://assets/cards/backgrounds/line_grid.png" id="1_bg1sw"]
 [ext_resource type="Script" path="res://scripts/resources/card_parameter.gd" id="1_fqs5c"]
 [ext_resource type="Texture2D" uid="uid://dd1rmycp1rmbb" path="res://assets/cards/foregrounds/minus.png" id="2_vdul8"]
-[ext_resource type="Script" path="res://scripts/resources/card.gd" id="2_xhbn2"]
+[ext_resource type="Script" path="res://scripts/resources/action_card.gd" id="2_xhbn2"]
 [ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="5_5nibe"]
 
 [sub_resource type="Resource" id="Resource_snpw7"]
@@ -29,6 +29,7 @@ frame_color = Color(1, 0.34902, 0.34902, 1)
 [resource]
 resource_name = "SubtractionCard"
 script = ExtResource("2_xhbn2")
+parameters = Array[ExtResource("1_fqs5c")]([SubResource("Resource_snpw7"), SubResource("Resource_ok2ar")])
 id = "sub"
 name = "subtract"
 description = "Pairs with a number card to subtract amount {X} from opponent's health."
@@ -37,4 +38,3 @@ foreground_texture = ExtResource("2_vdul8")
 background_texture = ExtResource("1_bg1sw")
 cost = 1
 type = 1
-parameters = Array[ExtResource("1_fqs5c")]([SubResource("Resource_snpw7"), SubResource("Resource_ok2ar")])

@@ -25,7 +25,6 @@ const COST_COLOR = [
 @export var foreground_texture:Texture2D = preload("res://assets/cards/foregrounds/hash.png")
 @export var background_texture:Texture2D = preload("res://assets/cards/backgrounds/dot_grid.png")
 
-@export_group("Function")
+@export_group("Other")
 @export_range(0, 2) var cost:int = 0
 @export var type:Type = Type.number
-@export var parameters:Array[CardParameter] = []

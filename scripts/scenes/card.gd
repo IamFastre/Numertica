@@ -28,6 +28,10 @@ const TYPEICONS_PATH = "res://assets/cards/types/%s.png"
 
 # ========================================================================== #
 
+func _ready() -> void:
+	if resource is NumberCard:
+		print(resource.name + " " + str(resource.value))
+
 func _process(delta:float) -> void:
 	configure()
 
@@ -59,12 +63,13 @@ func configure() -> void:
 	type_icon.texture = load(TYPEICONS_PATH % Card.Type.keys()[resource.type])
 	cost_icon.self_modulate = Card.COST_COLOR[resource.cost]
 
-	if resource.parameters.size() > 0:
+	if resource is ActionCard and resource.parameters.size() > 0:
+		var func_res:ActionCard = resource
 		band.visible = true
-		band.self_modulate = resource.style.frame_color
-		parameters_brackets.self_modulate = Card.ICON_COLOR[resource.type]
-		parameters_label.text = ', '.join(resource.parameters.map(func(param): return param.get('name')))
-		parameters_label.self_modulate = resource.style.accent_color
+		band.self_modulate = func_res.style.frame_color
+		parameters_brackets.self_modulate = Card.ICON_COLOR[func_res.type]
+		parameters_label.text = ', '.join(func_res.parameters.map(func(param): return param.get('name')))
+		parameters_label.self_modulate = func_res.style.accent_color
 	else:
 		band.visible = false
 

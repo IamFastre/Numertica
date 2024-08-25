@@ -1,14 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0vfb4abomtui"]
+[gd_scene load_steps=23 format=3 uid="uid://d0vfb4abomtui"]
 
 [ext_resource type="Script" path="res://scripts/scenes/card.gd" id="1_7a6ey"]
 [ext_resource type="Texture2D" uid="uid://c3uujpmcux0rn" path="res://assets/cards/foregrounds/hash.png" id="2_o6c5s"]
 [ext_resource type="Texture2D" uid="uid://bdhqnn6tmjp22" path="res://assets/cards/backgrounds/dot_grid.png" id="3_e5idg"]
-[ext_resource type="Script" path="res://scripts/resources/card_parameter.gd" id="4_a5d1q"]
 [ext_resource type="Texture2D" uid="uid://cenb7pire8i36" path="res://assets/cards/parts/band.png" id="4_i63lc"]
 [ext_resource type="Texture2D" uid="uid://dnjbj2f5n00tg" path="res://assets/cards/parts/bulk.png" id="4_ul6wl"]
-[ext_resource type="Script" path="res://scripts/resources/card.gd" id="5_lxpq0"]
+[ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="5_bxaob"]
+[ext_resource type="Script" path="res://scripts/resources/base_card.gd" id="5_lxpq0"]
 [ext_resource type="Texture2D" uid="uid://c288kcr687j7n" path="res://assets/cards/parts/frame.png" id="5_xidi0"]
-[ext_resource type="Script" path="res://scripts/resources/card_style.gd" id="6_8pwgf"]
 [ext_resource type="FontFile" uid="uid://b1os1hx24smli" path="res://assets/fonts/WorkSans/WorkSans-Bold.ttf" id="7_37i1n"]
 [ext_resource type="Shader" path="res://shaders/card.gdshader" id="7_w1v2u"]
 [ext_resource type="Texture2D" uid="uid://kl3q7tvfmk7u" path="res://assets/cards/parts/half_band.png" id="8_saf5m"]
@@ -17,29 +16,22 @@
 [ext_resource type="Texture2D" uid="uid://cdpkcl2yswelx" path="res://assets/cards/parts/corner.png" id="11_18idc"]
 [ext_resource type="Texture2D" uid="uid://dnuofqs83c2e8" path="res://assets/cards/types/number.png" id="14_3nk5s"]
 
-[sub_resource type="Resource" id="Resource_t47nf"]
-script = ExtResource("4_a5d1q")
-name = "x"
-description = ""
-type = 0
-
-[sub_resource type="Resource" id="Resource_csy5m"]
-script = ExtResource("6_8pwgf")
+[sub_resource type="Resource" id="Resource_jao0x"]
+script = ExtResource("5_bxaob")
 accent_color = Color(0.270588, 0.533333, 0.72549, 1)
 bulk_color = Color(0.211765, 0.239216, 0.321569, 1)
 frame_color = Color(0.129412, 0.145098, 0.196078, 1)
 
-[sub_resource type="Resource" id="Resource_a2b36"]
+[sub_resource type="Resource" id="Resource_wsryf"]
 script = ExtResource("5_lxpq0")
 id = "card"
 name = "Card"
 description = "Card template"
-style = SubResource("Resource_csy5m")
+style = SubResource("Resource_jao0x")
 foreground_texture = ExtResource("2_o6c5s")
 background_texture = ExtResource("3_e5idg")
 cost = 0
 type = 0
-parameters = Array[ExtResource("4_a5d1q")]([SubResource("Resource_t47nf")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qivd2"]
 shader = ExtResource("7_w1v2u")
@@ -65,7 +57,7 @@ size = Vector2(250, 350)
 scale = Vector2(0.4, 0.4)
 input_pickable = false
 script = ExtResource("1_7a6ey")
-resource = SubResource("Resource_a2b36")
+resource = SubResource("Resource_wsryf")
 default_scale = Vector2(0.4, 0.4)
 
 [node name="Sprite" type="Control" parent="."]
@@ -146,7 +138,6 @@ texture = ExtResource("5_xidi0")
 expand_mode = 1
 
 [node name="TopNotch" type="TextureRect" parent="Sprite/Frame"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.214
@@ -213,6 +204,7 @@ flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Band" type="TextureRect" parent="Sprite"]
+visible = false
 self_modulate = Color(0.129412, 0.145098, 0.196078, 1)
 layout_mode = 1
 anchors_preset = -1
